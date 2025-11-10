@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwmiq5fxsjnjw"]
+
+[ext_resource type="Script" uid="uid://ddvq1uy133200" path="res://scriptler/main.gd" id="1_2cjud"]
+[ext_resource type="PackedScene" uid="uid://dpiaddtg2l1jp" path="res://sahneler/kus.tscn" id="1_83j65"]
+[ext_resource type="Texture2D" uid="uid://bqrg5c8te8t3l" path="res://görseller/background-day.png" id="1_hiyvd"]
+[ext_resource type="Texture2D" uid="uid://bk3jtrht3gpfj" path="res://görseller/message.png" id="4_avpnl"]
+[ext_resource type="PackedScene" uid="uid://citoyog1v4ayi" path="res://sahneler/base.tscn" id="4_hiyvd"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_2cjud")
+
+[node name="BackgroundDay" type="Sprite2D" parent="."]
+texture_filter = 5
+position = Vector2(360.25, 639.75)
+scale = Vector2(2.4913194, 2.49707)
+texture = ExtResource("1_hiyvd")
+
+[node name="kus" parent="." instance=ExtResource("1_83j65")]
+position = Vector2(56, 362)
+
+[node name="base" parent="." instance=ExtResource("4_hiyvd")]
+position = Vector2(0, 541)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 5
+offset_left = 98.0
+offset_top = 88.0
+offset_right = 613.0
+offset_bottom = 801.0
+texture_normal = ExtResource("4_avpnl")
+ignore_texture_size = true
+stretch_mode = 0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://citoyog1v4ayi"]
+
+[ext_resource type="Texture2D" uid="uid://cm8m2ir880mnp" path="res://görseller/base.png" id="1_js1kf"]
+[ext_resource type="Script" uid="uid://8q74q3gmcjyl" path="res://scriptler/parallax_2d.gd" id="1_ox8lg"]
+
+[node name="base" type="Node2D"]
+texture_filter = 5
+texture_repeat = 3
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(448, 0)
+autoscroll = Vector2(-67, 0)
+script = ExtResource("1_ox8lg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(452.00003, 593)
+scale = Vector2(2.6770833, 2.5982141)
+texture = ExtResource("1_js1kf")

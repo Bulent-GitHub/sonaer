@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpiaddtg2l1jp"]
+
+[ext_resource type="Script" uid="uid://bpfyh3at6ceqm" path="res://scriptler/oyuncu.gd" id="1_dmyin"]
+[ext_resource type="Texture2D" uid="uid://bi7us7v6yqc2c" path="res://görseller/yellowbird-upflap.png" id="1_sve74"]
+[ext_resource type="Texture2D" uid="uid://b3mdi0wkr8rrl" path="res://görseller/yellowbird-midflap.png" id="2_dmyin"]
+[ext_resource type="Texture2D" uid="uid://tw5bj57ph82l" path="res://görseller/yellowbird-downflap.png" id="3_oho8y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n84pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sve74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dmyin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oho8y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oho8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dmyin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_sve74")
+}],
+"loop": true,
+"name": &"default2",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7utip"]
+radius = 30.034851
+height = 75.94263
+
+[node name="kus" type="Node2D"]
+
+[node name="Oyuncu" type="CharacterBody2D" parent="."]
+script = ExtResource("1_dmyin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Oyuncu"]
+texture_filter = 5
+position = Vector2(140, 210.5)
+scale = Vector2(2.352941, 2.4583337)
+sprite_frames = SubResource("SpriteFrames_n84pf")
+animation = &"default2"
+frame_progress = 0.92047524
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oyuncu"]
+position = Vector2(143, 211.00002)
+rotation = -1.5501806
+shape = SubResource("CapsuleShape2D_7utip")
+
+[node name="TextureButton" type="TextureButton" parent="Oyuncu"]
+offset_right = 719.0
+offset_bottom = 1281.0
