@@ -1,0 +1,33 @@
+name: Build iOS .ipa
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest   # iOS build için macOS gerekli
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 'latest'  # En güncel Xcode sürümü
+
+      - name: Build .ipa
+        run: |
+          xcodebuild -project flappy-bird.xcodeproj \
+                     -scheme YourSchemeName \
+                     -configuration Release \
+                     -sdk iphoneos \
+                     -archivePath ${{ github.workspace }}/build/flappy-bird.xcarchive archive
+
+          xcodebuild -exportArchive \
+                     -archivePath ${{ github.workspace }}/build/flappy-bird.xcarchive \
+                     -exportOptionsPlist ${{ github.workspace }}/ExportOptions.plist \
+                     -exportPath ${{ github.workspace }}/build
